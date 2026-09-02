@@ -17,4 +17,18 @@
 <div><b style="color:#fff">ThriftMath</b> — profit trackers for resellers &amp; flippers.<br>Questions? <a href="mailto:hello@thriftmath.com">hello@thriftmath.com</a></div>
 <div>© 2026 ThriftMath • <a href="terms.html">Terms &amp; license</a><br>Tax content is general info, not tax advice.</div>
 </div></footer>
+<script src="js/posthog.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  if(!window.posthog) return;
+  document.querySelectorAll('a.btn[download], a[download]').forEach(function(a){
+    a.addEventListener('click',function(){
+      var href=a.getAttribute('href')||'';
+      var name=href.split('/').pop()||'download';
+      posthog.capture('free_cta_click',{cta:name, page:'free.html'});
+    });
+  });
+});
+</script>
+
 </body></html>
