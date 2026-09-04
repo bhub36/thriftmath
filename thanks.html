@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Thanks — ThriftMath</title><meta name="description" content="Your download is on the way. How to open it and get started.">
+<meta name="robots" content="noindex,follow">
+<link rel="stylesheet" href="style.css?v=4">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏷️</text></svg>">
+</head><body>
+<header><div class="container nav">
+<a class="logo" href="index.html">Thrift<span>Math</span></a>
+<nav class="nav-links"><a href="index.html#products">Trackers</a><a href="blog/index.html">Guides</a><a href="free.html">Free stuff</a><a href="about.html">About</a></nav>
+</div></header>
+
+<div class="container" style="max-width:640px;text-align:center;padding:72px 24px 40px">
+<h1 style="color:var(--plum);margin-bottom:12px">You&#39;re in — check your email</h1>
+<p style="color:var(--grey);margin:0 0 28px;font-size:1.1rem">Stripe sends the receipt. Your ZIP (tool + Quick-Start PDF) is attached or linked right after payment. If it&#39;s not in Inbox in a few minutes, check Spam — then email <a href="mailto:hello@thriftmath.com">hello@thriftmath.com</a>.</p>
+
+<div style="text-align:left;margin:0 auto 36px;padding:22px 20px;border-radius:16px;border:1px solid rgba(0,0,0,.1);background:rgba(0,0,0,.02)">
+<h2 style="margin:0 0 14px;font-size:1.2rem;text-align:center">How to open it</h2>
+<ol style="margin:0;padding-left:1.2rem;color:var(--grey);line-height:1.55;font-size:1.05rem">
+<li style="margin-bottom:10px"><b>Download the ZIP</b> from the receipt email (or the page Stripe showed after pay).</li>
+<li style="margin-bottom:10px"><b>Unzip</b> on your phone or computer.</li>
+<li style="margin-bottom:10px"><b>Open in Google Sheets or Excel</b> (Word/Docs for form packs). Make a copy if you use Sheets so your edits stick.</li>
+<li><b>Skim the Quick-Start PDF</b> — 5–15 minutes to your first log.</li>
+</ol>
+</div>
+
+<div id="upsell" style="margin:0 0 16px;padding:28px 20px;border:1px solid rgba(0,0,0,.1);border-radius:16px;background:rgba(0,0,0,.02)">
+<h2 style="margin:0 0 10px;font-size:1.3rem">Selling on TikTok Shop?</h2>
+<p style="color:var(--grey);margin:0 0 18px;font-size:1.05rem">TikTok Shop Seller Tracker — referral fees, affiliates, samples, payouts. $19 one-time.</p>
+<p style="margin:0 0 12px"><a class="btn gold" style="font-size:1.05rem" id="thanks-upsell" href="https://buy.stripe.com/6oUbJ12qLbrPenJeyhg7e0d">Get TikTok Shop Tracker — $19</a></p>
+<p class="small" style="margin:0"><a href="products/tiktok-shop-tracker.html">See inside</a> · <a href="index.html">Back to home</a></p>
+</div>
+</div>
+
+<footer><div class="container foot-grid">
+<div><b style="color:#fff">ThriftMath</b> — profit trackers for resellers &amp; flippers.<br>Questions? <a href="mailto:hello@thriftmath.com">hello@thriftmath.com</a></div>
+<div>© 2026 ThriftMath • <a href="terms.html">Terms &amp; license</a><br>Tax content is general info, not tax advice.</div>
+</div></footer>
+<script src="js/posthog.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  if(window.posthog) posthog.capture('thanks_view',{page:'thanks.html'});
+  var a=document.getElementById('thanks-upsell');
+  if(a) a.addEventListener('click',function(){
+    if(!window.posthog) return;
+    var href=a.getAttribute('href')||'';
+    posthog.capture('stripe_click',{cta:'thanks_upsell', href:href, page:'thanks.html'});
+  });
+});
+</script>
+</body></html>
