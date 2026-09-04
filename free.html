@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Free 1099-K Panic Cheat Sheet — ThriftMath</title><meta name="description" content="Gross sales ≠ taxable profit. Free one-page PDF for resellers, no email required.">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=4">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏷️</text></svg>">
 </head><body>
 <header><div class="container nav">
 <a class="logo" href="index.html">Thrift<span>Math</span></a>
 <nav class="nav-links"><a href="index.html#products">Trackers</a><a href="blog/index.html">Guides</a><a href="free.html">Free stuff</a><a href="about.html">About</a></nav>
 </div></header>
-<div class="container" style="max-width:720px;text-align:center;padding:80px 24px">
+<div id="free-downloads" class="container" style="max-width:720px;text-align:center;padding:80px 24px">
 <h1 style="color:var(--plum);margin-bottom:14px">The 1099-K Panic Cheat Sheet</h1>
 <p style="color:var(--grey);margin-bottom:8px">A 1099-K reports your GROSS sales — you owe tax on PROFIT. One page: 2026 federal &amp; state thresholds, what actually deducts, and the 15-minute fix. Free, no email wall. Share it with your reseller group — that's the point.</p>
 <p style="margin:26px 0"><a class="btn gold" style="font-size:1.15rem" href="files/ThriftMath-1099K-Panic-Cheat-Sheet.pdf" download>⬇ Download the free PDF</a></p>
-<p class="small">Want the spreadsheet that keeps those records automatically?<br><a href="products/reseller-hq.html">See Reseller HQ →</a></p></div>
+<div id="tripwire" style="margin:48px 0 16px;padding:28px 20px;border:1px solid rgba(0,0,0,.1);border-radius:16px;background:rgba(0,0,0,.02);text-align:center">
+<h2 style="margin:0 0 10px;font-size:1.35rem">Want the sheet that tracks every flip?</h2>
+<p style="color:var(--grey);margin:0 0 20px;font-size:1.05rem">Reseller HQ — every haul, every platform&#39;s fees, every flip — and your death pile, counted honestly. $27 one-time.</p>
+<p style="margin:0 0 14px"><a class="btn gold" style="font-size:1.1rem" id="tripwire-buy" href="https://buy.stripe.com/28EbJ16H1brPenJbm5g7e0c">Get Reseller HQ — $27</a></p>
+<p class="small" style="margin:0"><a href="#free-downloads" id="tripwire-skip">No thanks, just the free tools</a> · <a href="products/reseller-hq.html">See inside</a></p>
+</div>
+</div>
 <footer><div class="container foot-grid">
 <div><b style="color:#fff">ThriftMath</b> — profit trackers for resellers &amp; flippers.<br>Questions? <a href="mailto:hello@thriftmath.com">hello@thriftmath.com</a></div>
 <div>© 2026 ThriftMath • <a href="terms.html">Terms &amp; license</a><br>Tax content is general info, not tax advice.</div>
@@ -20,15 +26,25 @@
 <script src="js/posthog.js" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
-  if(!window.posthog) return;
+  function capture(event, props){
+    if(!window.posthog) return;
+    posthog.capture(event, props||{});
+  }
   document.querySelectorAll('a.btn[download], a[download]').forEach(function(a){
     a.addEventListener('click',function(){
       var href=a.getAttribute('href')||'';
       var name=href.split('/').pop()||'download';
-      posthog.capture('free_cta_click',{cta:name, page:'free.html'});
+      capture('free_cta_click',{cta:name, page:'free.html'});
     });
   });
+  var buy=document.getElementById('tripwire-buy');
+  if(buy){
+    buy.addEventListener('click',function(){
+      var href=buy.getAttribute('href')||'';
+      capture('tripwire_cta_click',{cta:'tripwire_buy', product:buy.textContent.trim(), page:'free.html'});
+      capture('stripe_click',{cta:'tripwire', href:href, page:'free.html'});
+    });
+  }
 });
 </script>
-
 </body></html>
