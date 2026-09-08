@@ -13,7 +13,7 @@
 <h1>Know what every flip actually made you</h1>
 <p>Start free with the 1099-K Panic Cheat Sheet — no email. When you want the full trackers, they are ready below.</p>
 <div class="badge-row"><span class="chip">Free cheat sheet, no email</span><span class="chip">Google Sheets + Excel</span><span class="chip">One-time price — no subscriptions</span><span class="chip">Built by a real reseller</span></div>
-<a class="btn gold" href="free.html">Get the free cheat sheet</a>
+<a class="btn gold" id="free-hero" href="free.html">Get the free cheat sheet</a>
 <p style="margin-top:16px;color:var(--grey)"><a href="#products">See the trackers ↓</a></p>
 </section>
 <section class="section alt"><div class="container">
@@ -43,11 +43,30 @@
 </div>
 <div class="cta-band"><h2>Start free: the 1099-K Panic Cheat Sheet</h2>
 <p>Gross sales ≠ taxable profit. The one-page PDF that ends the January freakout — free, no email required. Share it with your reseller group.</p>
-<a class="btn gold" href="free.html">Get the free cheat sheet</a></div>
+<a class="btn gold" id="free-band" href="free.html">Get the free cheat sheet</a></div>
 </div></section>
 <footer><div class="container foot-grid">
 <div><b style="color:#fff">ThriftMath</b> — profit trackers for resellers &amp; flippers.<br>Questions? <a href="mailto:hello@thriftmath.com">hello@thriftmath.com</a></div>
 <div>© 2026 ThriftMath • <a href="terms.html">Terms &amp; license</a><br>Tax content is general info, not tax advice.</div>
 </div></footer>
 <script src="js/posthog.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  function track(a, cta){
+    if(!a) return;
+    a.addEventListener('click',function(e){
+      var href=a.getAttribute('href')||'';
+      if(window.posthog){
+        posthog.capture('free_cta_click',{cta:cta, href:href, page:'index.html'});
+      }
+      if(href && href.charAt(0)!=='#' && !a.hasAttribute('download')){
+        e.preventDefault();
+        setTimeout(function(){ window.location.href=href; }, 180);
+      }
+    });
+  }
+  track(document.getElementById('free-hero'), 'hero_free');
+  track(document.getElementById('free-band'), 'band_free');
+});
+</script>
 </body></html>
